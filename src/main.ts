@@ -22,15 +22,11 @@ async function bootstrap() {
   );
 
   // ── CORS ────────────────────────────────────────────────────────────────────
-  // Allow requests from your React frontend
   app.enableCors({
-    origin: [
-      process.env.FRONTEND_URL || 'http://localhost:5173',
-      'https://*.vercel.app',
-      'https://*.netlify.app',
-    ],
+    origin: true,           // Allow ALL origins (safe for assignment)
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   });
 
   // ── Global prefix ───────────────────────────────────────────────────────────
