@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: students-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        sync: false   # Set this manually in Render dashboard from Supabase
+      - key: FRONTEND_URL
+        sync: false   # Set your Vercel/Netlify URL here
